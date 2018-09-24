@@ -38,6 +38,9 @@ module.exports = class NetworkChangeNotifier extends EventEmitter {
     this.start();
   }
 
+  /**
+   * Starts listening to network interface changes
+   */
   start() {
     // clear currently running checks
     if (this.interval) {
@@ -71,6 +74,9 @@ module.exports = class NetworkChangeNotifier extends EventEmitter {
     return JSON.stringify(privateInterfaces);
   }
 
+  /**
+   * Starts listening to network interface changes
+   */
   stop() {
     if (this.interval) {
       clearInterval(this.interval);
