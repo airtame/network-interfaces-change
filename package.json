@@ -1,16 +1,28 @@
 {
   "name": "network-interfaces-change",
   "version": "1.0.0",
-  "description": "Get notified on any or various changes in network interfaces",
+  "description": "Get notified on any changes in network interfaces",
   "main": "src/network-change.js",
   "scripts": {
-    "test": "mocha"
+    "test": "nyc mocha",
+    "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
-  "author": "",
-  "license": "ISC",
+  "nyc": {
+    "check-coverage": true,
+    "per-file": true,
+    "lines": 99,
+    "statements": 99,
+    "functions": 99,
+    "branches": 99
+  },
+  "author": "Airtame (noahlaux@gmail.com)",
+  "license": "MIT",
   "devDependencies": {
     "chai": "^4.1.2",
+    "coveralls": "^3.0.2",
     "mocha": "^5.2.0",
+    "mocha-lcov-reporter": "^1.3.0",
+    "nyc": "^13.0.1",
     "sinon": "^6.3.4"
   }
 }

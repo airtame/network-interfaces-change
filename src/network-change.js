@@ -24,18 +24,27 @@ module.exports = class NetworkChangeNotifier extends EventEmitter {
    *
    * notifier.on('network-change', () => console.log('internal network interfaces changed'));
    *
-   * @param {*} [{
-   *     intervals = 1000,
+   * @param {*} {{
+   *     updateInterval: string,
    *     filter = () => true
-   *   }={}]
+   *   }={}}
    */
-  constructor({ intervals = 1000, filter = () => true } = {}) {
+  constructor({ updateInterval = 1000, filter = () => true } = {}) {
     super();
-
+    this.updateInterval = updateInterval;
     this.filter = filter;
     this.previousInterfaces = this.getInterfacesSerialized();
 
-    setInterval(() => {
+    this.start();
+  }
+
+  start() {
+    // clear currently running checks
+    if (this.interval) {
+      this.stop();
+    }
+
+    this.interval = setInterval(() => {
       const currentInterfaces = this.getInterfacesSerialized();
       const hasChanges = this.previousInterfaces !== currentInterfaces;
 
@@ -44,8 +53,9 @@ module.exports = class NetworkChangeNotifier extends EventEmitter {
       }
 
       this.previousInterfaces = currentInterfaces;
-    }, intervals);
+    }, this.updateInterval);
   }
+
   /**
    * Get network interfaces in serialized form
    *
@@ -59,5 +69,12 @@ module.exports = class NetworkChangeNotifier extends EventEmitter {
       }
     );
     return JSON.stringify(privateInterfaces);
+  }
+
+  stop() {
+    if (this.interval) {
+      clearInterval(this.interval);
+      this.interval = null;
+    }
   }
 };
