@@ -1,6 +1,6 @@
-[![Build Status](https://travis-ci.org/airtame/network-interfaces-change.svg?branch=master)](https://travis-ci.org/airtame/network-interfaces-change)
-
 # Network interfaces change
+
+[![Build Status](https://travis-ci.org/airtame/network-interfaces-change.svg?branch=master)](https://travis-ci.org/airtame/network-interfaces-change)
 
 > Get notified on any changes in network interfaces
 
