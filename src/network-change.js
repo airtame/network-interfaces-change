@@ -62,12 +62,12 @@ module.exports = class NetworkChangeNotifier extends EventEmitter {
    */
   getInterfacesSerialized() {
     const networkInterfaces = os.networkInterfaces();
-    const privateInterfaces = Object.values(networkInterfaces).map(
+    const filteredInterfaces = Object.values(networkInterfaces).map(
       networkInterface => {
         return networkInterface.filter(this.filter);
       }
     );
-    return JSON.stringify(privateInterfaces);
+    return JSON.stringify(filteredInterfaces);
   }
 
   /**
