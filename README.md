@@ -12,7 +12,7 @@ This small utility aims to solve that, by continuously match the network interfa
 ## Usage
 
 ```js
-const NetworkChangeNotifier = require("network-change-notifier");
+const NetworkChangeNotifier = require("@airtame/network-change-notifier");
 const notifier = new NetworkChangeNotifier();
 
 notifier.on("network-change", () => console.log("network interfaces changed"));
@@ -22,7 +22,7 @@ You can provide a filter, to only be notified if any interfaces changes that
 match a certain criteria
 
 ```js
-const NetworkChangeNotifier = require("network-change-notifier");
+const NetworkChangeNotifier = require("@airtame/network-change-notifier");
 const notifier = new NetworkChangeNotifier({
   filter: network => network.internal,
   // only check every 5 seconds (default 1 second)
