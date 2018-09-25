@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Get notified on any changes in network interfaces",
   "main": "src/network-change.js",
+  "directories": {
+    "test": "test"
+  },
   "scripts": {
     "test": "nyc mocha",
     "coverage": "nyc report --reporter=text-lcov | coveralls"
@@ -15,8 +18,22 @@
     "functions": 99,
     "branches": 99
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/airtame/network-interfaces-change.git"
+  },
+  "keywords": [
+    "node",
+    "network",
+    "interface",
+    "change"
+  ],
   "author": "Airtame (noahlaux@gmail.com)",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/airtame/network-interfaces-change/issues"
+  },
+  "homepage": "https://github.com/airtame/network-interfaces-change#readme",
   "devDependencies": {
     "chai": "^4.1.2",
     "coveralls": "^3.0.2",
