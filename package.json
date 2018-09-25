@@ -1,6 +1,6 @@
 {
   "name": "@airtame/network-interfaces-change",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Get notified on any changes in network interfaces",
   "main": "src/network-change.js",
   "directories": {
