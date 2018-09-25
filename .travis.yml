@@ -1,4 +1,12 @@
 language: node_js
 node_js:
-  - '9'
+- '9'
 after_success: npm run coverage
+deploy:
+  provider: npm
+  email: noahlaux@gmail.com
+  api_key:
+    secure: tZvUC7K5Jj4GRQYqbULKbibxyLMFwCxBFEYFWtvL5NVyotLP/gxwdnx/jGHTk83+9mwZ30aS1a0YeAyKMRtCV65JfJYsLCyPzzTLQ+f4wXKQrB0s625nRbZz5KJjELnu3OZDKU73ZfO6a66zDaUB8+ygFpKPhmy/j1qm7n1kUfqwyn94byk2eeVlkcieInnMBJT4sX0X+AWrlCZ6D7Jx5BWtoT750Co/iCb5Nx+nEsfc6+lEKEIbbqUTo5XDVyOt6Cok77x29gPPFdB2l+/uFpHcFq4diEPasb5AYDgJ0lVW0RFrapTzjBbYH9n0FsHkNYRtoz8unWjA/H1aG2WQjw0Ipq/jjfNATxG8PXEeLR94yHYHndcvdrw46Re+uyb1daRjUTCIibVdkHWqjU1/wqjZ1Q7/diaR0PuqBKksuTshpK9/S2Rl8b2/xeAIuxXhq+0idUF1NdQX4YZv0vkJ5pr6FT9Oz6o7VEJREQ3Qjdn1RxzgR6OLf4u9rTiVwty3JbHnV7o2LSxYk5SspV0EPIgYJ/CVXhhdu0ntAXsgPjhNIg13zcLKrtHQkzRDDx8Zu0cZW+r6b6pTKuDDMIoxOmDPKfoC7ZztXqR7sNe4mx707BYD3XT6a2oHHIQvyjC5rafwtPofq6HX163CLQJgddT4HKXI14bguD5+xGev/MA=
+  on:
+    tags: true
+    repo: airtame/network-interfaces-change
