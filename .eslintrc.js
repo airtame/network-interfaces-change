@@ -14,6 +14,7 @@ module.exports = {
   plugins: ['prettier'],
   extends: ['eslint:recommended', 'prettier'],
   rules: {
+    'prettier/prettier': 'error',
     camelcase: [2, { properties: 'never' }],
     curly: ['error', 'all'],
     'dot-notation': [2],
