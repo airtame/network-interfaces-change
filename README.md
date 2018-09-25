@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/airtame/network-interfaces-change.svg?branch=master)](https://travis-ci.org/airtame/network-interfaces-change)
 
-> Get notified on any changes in network interfaces
+> Get notified of any changes in network interfaces
 
 Node.js doesn't provide an easy way to watch for network interface changes on your system.
 
@@ -30,7 +30,7 @@ const notifier = new NetworkChangeNotifier({
 notifier.on('network-change', () => console.log('internal network interfaces changed'));
 ```
 
-a typical network object looks like this
+A typical network object looks like this:
 
 ```json
 {
