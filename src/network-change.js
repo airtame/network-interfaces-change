@@ -1,5 +1,6 @@
-const os = require("os");
-const EventEmitter = require("events");
+// @ts-nocheck
+const os = require('os');
+const EventEmitter = require('events');
 
 module.exports = class NetworkChangeNotifier extends EventEmitter {
   /**
@@ -48,7 +49,7 @@ module.exports = class NetworkChangeNotifier extends EventEmitter {
       const hasChanges = this.previousInterfaces !== currentInterfaces;
 
       if (hasChanges) {
-        this.emit("network-change");
+        this.emit('network-change');
       }
 
       this.previousInterfaces = currentInterfaces;
@@ -58,15 +59,13 @@ module.exports = class NetworkChangeNotifier extends EventEmitter {
   /**
    * Get network interfaces in serialized form
    *
-   * @returns {string}
+   * @returns {string} serialized network interfaces
    */
   getInterfacesSerialized() {
     const networkInterfaces = os.networkInterfaces();
-    const filteredInterfaces = Object.values(networkInterfaces).map(
-      networkInterface => {
-        return networkInterface.filter(this.filter);
-      }
-    );
+    const filteredInterfaces = Object.values(networkInterfaces).map(networkInterface => {
+      return networkInterface.filter(this.filter);
+    });
     return JSON.stringify(filteredInterfaces);
   }
 
