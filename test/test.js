@@ -1,6 +1,7 @@
+// @ts-nocheck
+const { describe, it, beforeEach, afterEach } = require('mocha');
 const expect = require('chai').expect;
 const sinon = require('sinon');
-
 const NetworkChangeNotifier = require('../src/network-change');
 
 const networksFixture = require('./fixtures/networks.json');

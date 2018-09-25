@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 const os = require('os');
 const EventEmitter = require('events');
 
@@ -57,7 +59,7 @@ module.exports = class NetworkChangeNotifier extends EventEmitter {
   /**
    * Get network interfaces in serialized form
    *
-   * @returns {string}
+   * @returns {string} serialized network interfaces
    */
   getInterfacesSerialized() {
     const networkInterfaces = os.networkInterfaces();
