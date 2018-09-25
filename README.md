@@ -5,7 +5,7 @@
 Node.js doesn't have an easy build-in way to determine to watch for changes in
 network interfaces on the system.
 
-This small utility aims to solve that, by continuously match the network interfaces (default 1 times or second) to their previous state. You can also filter the interface network to only watch a subset.
+This small utility aims to solve that, by continuously match the network interfaces (default 1 times per second) to their previous state. You can also filter the interface network to only watch a subset.
 
 ## Usage
 
@@ -22,7 +22,9 @@ match a certain criteria
 ```js
 const NetworkChangeNotifier = require("network-change-notifier");
 const notifier = new NetworkChangeNotifier({
-  filter: network => network.internal
+  filter: network => network.internal,
+  // only check every 5 seconds (default 1 second)
+  updateInterval: 5000
 });
 
 notifier.on("network-change", () =>
