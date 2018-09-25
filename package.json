@@ -11,6 +11,9 @@
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "lint": "eslint **/*.js"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "nyc": {
     "check-coverage": true,
     "per-file": true,
