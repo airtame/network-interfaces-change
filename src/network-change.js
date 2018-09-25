@@ -13,20 +13,16 @@ module.exports = class NetworkChangeNotifier extends EventEmitter {
    *
    * notifier.on('network-change', () => console.log('network interfaces changed'));
    *
-   * You can provide a filter, if you're only interested in a subset of the
-   * network interfaces.
-   *
    * @example
    * const NetworkChangeNotifier = require('network-change-notifier');
+   * // You can provide a filter, if you're only interested in a subset of the network interfaces.
    * const notifier = new NetworkChangeNotifier({
    *  filter: network => network.internal
    * });
    *
    * notifier.on('network-change', () => console.log('internal network interfaces changed'));
    *
-   * @param {*} {{
-   *     updateInterval: string,
-   *     filter = () => true
+   * @param {*} {{updateInterval: string, filter = () => true
    *   }={}}
    */
   constructor({ updateInterval = 1000, filter = () => true } = {}) {
